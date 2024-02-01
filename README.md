@@ -14,6 +14,10 @@ npx cap sync
 <docgen-index>
 
 * [`echo(...)`](#echo)
+* [`startStreamingCarPlay(...)`](#startstreamingcarplay)
+* [`playStreamingCarPlay(...)`](#playstreamingcarplay)
+* [`pauseStreamingCarPlay(...)`](#pausestreamingcarplay)
+* [`isCarplayConnected(...)`](#iscarplayconnected)
 
 </docgen-index>
 
@@ -24,6 +28,66 @@ npx cap sync
 
 ```typescript
 echo(options: { value: string; }) => Promise<{ value: string; }>
+```
+
+| Param         | Type                            |
+| ------------- | ------------------------------- |
+| **`options`** | <code>{ value: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+
+--------------------
+
+
+### startStreamingCarPlay(...)
+
+```typescript
+startStreamingCarPlay(options: { value: string; }) => Promise<{ value: string; }>
+```
+
+| Param         | Type                            |
+| ------------- | ------------------------------- |
+| **`options`** | <code>{ value: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+
+--------------------
+
+
+### playStreamingCarPlay(...)
+
+```typescript
+playStreamingCarPlay(options: { value: string; }) => Promise<{ value: string; }>
+```
+
+| Param         | Type                            |
+| ------------- | ------------------------------- |
+| **`options`** | <code>{ value: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+
+--------------------
+
+
+### pauseStreamingCarPlay(...)
+
+```typescript
+pauseStreamingCarPlay(options: { value: string; }) => Promise<{ value: string; }>
+```
+
+| Param         | Type                            |
+| ------------- | ------------------------------- |
+| **`options`** | <code>{ value: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+
+--------------------
+
+
+### isCarplayConnected(...)
+
+```typescript
+isCarplayConnected(options: { value: string; }) => Promise<{ value: string; }>
 ```
 
 | Param         | Type                            |
