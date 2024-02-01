@@ -13,7 +13,7 @@ import MediaPlayer
 import Alamofire
 
 
-@objc class CarPlayHelper: NSObject {
+@objc public class CarPlayHelper: NSObject {
     @objc public static let shared = CarPlayHelper()
     @objc public var isCarplayConnected: Bool = false
     var player = AVPlayer()
@@ -24,7 +24,7 @@ import Alamofire
         timer = nil
     }
     
-    @objc func startStreaming() {
+    @objc public func startStreaming() {
         let playerItem = AVPlayerItem(url: URL(string: "https://s3.radio.co/s2781af807/listen")!)
         player = AVPlayer(playerItem: playerItem)
         player.rate = 1.0
@@ -98,12 +98,12 @@ import Alamofire
         commandCenter.previousTrackCommand.isEnabled = false
     }
     
-    @objc func playStreaming() -> MPRemoteCommandHandlerStatus {
+    @objc public func playStreaming() -> MPRemoteCommandHandlerStatus {
         self.player.play()
         return MPRemoteCommandHandlerStatus.success
     }
     
-    @objc func pauseStreaming() -> MPRemoteCommandHandlerStatus {
+    @objc public func pauseStreaming() -> MPRemoteCommandHandlerStatus {
         self.pausePlayer()
         return MPRemoteCommandHandlerStatus.success
     }

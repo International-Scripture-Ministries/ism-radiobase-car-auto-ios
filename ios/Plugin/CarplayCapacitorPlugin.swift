@@ -8,22 +8,22 @@ import Capacitor
 @objc(CarplayCapacitorPlugin)
 public class CarplayCapacitorPlugin: CAPPlugin {
 
-    @objc func startStreamingCarPlay(_ call: CAPPluginCall) {
+    @objc public func startStreamingCarPlay(_ call: CAPPluginCall) {
         CarPlayHelper.shared.startStreaming()
         call.resolve()
     }
     
-    @objc func playStreamingCarPlay(_ call: CAPPluginCall) {
+    @objc public func playStreamingCarPlay(_ call: CAPPluginCall) {
         _ = CarPlayHelper.shared.playStreaming()
         call.resolve()
     }
     
-    @objc func pauseStreamingCarPlay(_ call: CAPPluginCall) {
+    @objc public func pauseStreamingCarPlay(_ call: CAPPluginCall) {
         _ = CarPlayHelper.shared.pauseStreaming()
         call.resolve()
     }
     
-    @objc func isCarplayConnected(_ call: CAPPluginCall) {
+    @objc public func isCarplayConnected(_ call: CAPPluginCall) {
         let message = CarPlayHelper.shared.isCarplayConnected ? "1" : "0"
         call.resolve(["result": message])
     }

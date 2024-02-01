@@ -6,10 +6,6 @@ export class CarplayCapacitorWeb
   extends WebPlugin
   implements CarplayCapacitorPlugin
 {
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
-  }
   async startStreamingCarPlay(options: { value: string }): Promise<{ value: string }> {
     console.log('startStreamingCarPlay', options);
     return options;
