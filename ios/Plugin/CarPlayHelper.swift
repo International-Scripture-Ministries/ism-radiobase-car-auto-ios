@@ -18,46 +18,100 @@ import Alamofire
     @objc public var isCarplayConnected: Bool = false
     var player = AVPlayer()
     var timer: Timer?
-    
+    private let url = "https://devmanage.radiobase.org/index.php?api_v2/Builder/RadioPlayer/getRadioPlayer/1167"
+    private var apiIntervalSeconds = 10.0
+    private var isPlayerItemConfigured = false
+
     deinit {
         timer?.invalidate()
         timer = nil
     }
     
-    @objc public func startStreaming() {
-        let playerItem = AVPlayerItem(url: URL(string: "https://s3.radio.co/s2781af807/listen")!)
-        player = AVPlayer(playerItem: playerItem)
-        player.rate = 1.0
-        player.play()
-        setupRemoteCommandCenterTargets()
-        //  First time fetch metadata righ away and then schedule using timer
-        checkForMetaData()
-        timer = Timer.scheduledTimer(timeInterval: 10,
-                                     target: self,
-                                     selector: #selector(checkForMetaData),
-                                     userInfo: nil,
-                                     repeats: true)
+    private func getUrlWithEpoch() -> String {
+        
+        let timeInterval = Date().timeIntervalSince1970
+        let epoch = String(Int(timeInterval))
+        let urlWithEpch = self.url + "/" + epoch
+        return urlWithEpch
     }
     
-    @objc private func checkForMetaData() {
-            Alamofire.request("https://public.radio.co/stations/s2781af807/status").responseJSON { dataResponse in
+    @objc public func startStreaming() {
+        
+        //  fetch audio info using api
+        //  https://devmanage.radiobase.org/index.php?api_v2/Builder/RadioPlayer/getRadioPlayer/1167
+        
+        let url = self.getUrlWithEpoch()
+        Alamofire.request(url)
+            .responseJSON { [weak self] dataResponse in
+                guard let self else { return }
                 switch dataResponse.result {
                 case .success(let value):
                     guard let json = value as? [String:Any] else { return }
-                    print(json)
-                    guard let currentTrack = json["current_track"] as? [String:Any] else { return }
-                    print(currentTrack)
-                    guard let title = currentTrack["title"] as? String else { return }
-                    guard let image = currentTrack["artwork_url_large"] as? String else { return }
-                    debugPrint(value)
-                    self.setPlayerNowPlayingInformation(title: title, image: image, artist: "")
+                    if let isLiveStream = json["radio_player_live_Stream"] as? Bool {
+                        
+                        print("-----------")
+                        print("isLiveStream: \(isLiveStream)")
+//                        self.apiIntervalSeconds = isLiveStream ? 3.0 : 10.0
+                        self.apiIntervalSeconds = 10.0
+                        self.timer?.invalidate()
+                        self.timer = Timer.scheduledTimer(
+                            timeInterval: self.apiIntervalSeconds,
+                            target: self,
+                            selector: #selector(self.startStreaming),
+                            userInfo: nil,
+                            repeats: true
+                        )
+                    }
+                    
+                    guard let musicArray = json["music"] as? [[String:Any]] else { return }
+                    guard let music = musicArray.first else { return }
+                    
+                    if !self.isPlayerItemConfigured {
+                        //  Source url can not change as per requirement from backend
+                        if let source = music["source"] as? String,
+                           let url = URL(string: source) {
+                            print("Source: \(source)")
+                            
+                            self.isPlayerItemConfigured = true
+
+                            //  Configure player item
+                            
+                            let playerItem = AVPlayerItem(url: url)
+                            self.player = AVPlayer(playerItem: playerItem)
+                            self.player.rate = 1.0
+                            self.player.play()
+                            self.setupRemoteCommandCenterTargets()
+                        }
+                    }
+                    
+                    //  Setup now playing info
+                    
+                    var npTitle = ""
+                    var npImage = ""
+                    var npArtist = ""
+                    if let title = music["title"] as? String {
+                        npTitle = title
+                    }
+                    if let image = music["image"] as? String {
+                        npImage = image
+                    }
+                    if let artist = music["artist"] as? String {
+                        npArtist = artist
+                    }
+
+                    self.setPlayerNowPlayingInformation(title: npTitle, image: npImage, artist: npArtist)
+
                 case .failure(let error):
                     debugPrint(error)
                 }
             }
-        }
+    }
     
     private func setPlayerNowPlayingInformation(title: String, image: String, artist: String) {
+        
+        print("title: \(title)")
+        print("image: \(image)")
+        print("artist: \(artist)")
         
         var nowPlayingInfo = [String: Any]()
         nowPlayingInfo[MPMediaItemPropertyTitle] = title
