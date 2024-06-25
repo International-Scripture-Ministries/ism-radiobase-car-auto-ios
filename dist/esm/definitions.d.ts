@@ -1,4 +1,9 @@
 export interface CarplayCapacitorPlugin {
+    echo(options: {
+        value: string;
+    }): Promise<{
+        value: string;
+    }>;
     startStreamingCarPlay(options: {
         value: string;
     }): Promise<{
@@ -17,6 +22,6 @@ export interface CarplayCapacitorPlugin {
     isCarplayConnected(options: {
         value: string;
     }): Promise<{
-        value: any;
+        value: string;
     }>;
 }

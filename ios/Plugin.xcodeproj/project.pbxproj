@@ -9,8 +9,17 @@
 /* Begin PBXBuildFile section */
 		03FC29A292ACC40490383A1F /* Pods_Plugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2A61DA5A1F2DD4F959604D /* Pods_Plugin.framework */; };
 		20C0B05DCFC8E3958A738AF2 /* Pods_PluginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6753A823D3815DB436415E3 /* Pods_PluginTests.framework */; };
-		295F1C0D2B67CF730003024E /* CarPlayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295F1C0C2B67CF730003024E /* CarPlayHelper.swift */; };
-		295F1C0F2B67D3D70003024E /* CarplaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295F1C0E2B67D3D70003024E /* CarplaySceneDelegate.swift */; };
+		29323ACD2BBA2E1500D57E22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29323ACC2BBA2E1500D57E22 /* AppDelegate.swift */; };
+		29323ACF2BBA2E1500D57E22 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29323ACE2BBA2E1500D57E22 /* SceneDelegate.swift */; };
+		29323AD12BBA2E1500D57E22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29323AD02BBA2E1500D57E22 /* ViewController.swift */; };
+		29323AD42BBA2E1500D57E22 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 29323AD32BBA2E1500D57E22 /* Base */; };
+		29323AD62BBA2E1600D57E22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29323AD52BBA2E1600D57E22 /* Assets.xcassets */; };
+		29323AD92BBA2E1600D57E22 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 29323AD82BBA2E1600D57E22 /* Base */; };
+		29323ADE2BBA341D00D57E22 /* Plugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADFF88201F53D600D50D53 /* Plugin.framework */; };
+		29323ADF2BBA341D00D57E22 /* Plugin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADFF88201F53D600D50D53 /* Plugin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		295F1D202B6B83D50003024E /* CarPlayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295F1D1F2B6B83D50003024E /* CarPlayHelper.swift */; };
+		295F1D222B6B84630003024E /* CarplaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295F1D212B6B84620003024E /* CarplaySceneDelegate.swift */; };
+		2F98D68224C9AAE500613A4C /* CarplayCapacitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F98D68124C9AAE400613A4C /* CarplayCapacitor.swift */; };
 		50ADFF92201F53D600D50D53 /* Plugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADFF88201F53D600D50D53 /* Plugin.framework */; };
 		50ADFF97201F53D600D50D53 /* CarplayCapacitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ADFF96201F53D600D50D53 /* CarplayCapacitorTests.swift */; };
 		50ADFF99201F53D600D50D53 /* CarplayCapacitorPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 50ADFF8B201F53D600D50D53 /* CarplayCapacitorPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -20,6 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		29323AE02BBA341D00D57E22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50ADFF7F201F53D600D50D53 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50ADFF87201F53D600D50D53;
+			remoteInfo = Plugin;
+		};
 		50ADFF93201F53D600D50D53 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 50ADFF7F201F53D600D50D53 /* Project object */;
@@ -29,9 +45,32 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		29323AE22BBA341D00D57E22 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				29323ADF2BBA341D00D57E22 /* Plugin.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		295F1C0C2B67CF730003024E /* CarPlayHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPlayHelper.swift; sourceTree = "<group>"; };
-		295F1C0E2B67D3D70003024E /* CarplaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarplaySceneDelegate.swift; sourceTree = "<group>"; };
+		29323ACA2BBA2E1500D57E22 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29323ACC2BBA2E1500D57E22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		29323ACE2BBA2E1500D57E22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		29323AD02BBA2E1500D57E22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		29323AD32BBA2E1500D57E22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		29323AD52BBA2E1600D57E22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		29323AD82BBA2E1600D57E22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		29323ADA2BBA2E1600D57E22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		295F1D1F2B6B83D50003024E /* CarPlayHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlayHelper.swift; sourceTree = "<group>"; };
+		295F1D212B6B84620003024E /* CarplaySceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarplaySceneDelegate.swift; sourceTree = "<group>"; };
+		2F98D68124C9AAE400613A4C /* CarplayCapacitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarplayCapacitor.swift; sourceTree = "<group>"; };
 		3B2A61DA5A1F2DD4F959604D /* Pods_Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50ADFF88201F53D600D50D53 /* Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Plugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50ADFF8B201F53D600D50D53 /* CarplayCapacitorPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarplayCapacitorPlugin.h; sourceTree = "<group>"; };
@@ -50,6 +89,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		29323AC72BBA2E1500D57E22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29323ADE2BBA341D00D57E22 /* Plugin.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50ADFF84201F53D600D50D53 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -71,11 +118,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29323ACB2BBA2E1500D57E22 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				29323ACC2BBA2E1500D57E22 /* AppDelegate.swift */,
+				29323ACE2BBA2E1500D57E22 /* SceneDelegate.swift */,
+				29323AD02BBA2E1500D57E22 /* ViewController.swift */,
+				29323AD22BBA2E1500D57E22 /* Main.storyboard */,
+				29323AD52BBA2E1600D57E22 /* Assets.xcassets */,
+				29323AD72BBA2E1600D57E22 /* LaunchScreen.storyboard */,
+				29323ADA2BBA2E1600D57E22 /* Info.plist */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		50ADFF7E201F53D600D50D53 = {
 			isa = PBXGroup;
 			children = (
 				50ADFF8A201F53D600D50D53 /* Plugin */,
 				50ADFF95201F53D600D50D53 /* PluginTests */,
+				29323ACB2BBA2E1500D57E22 /* Test */,
 				50ADFF89201F53D600D50D53 /* Products */,
 				8C8E7744173064A9F6D438E3 /* Pods */,
 				A797B9EFA3DCEFEA1FBB66A9 /* Frameworks */,
@@ -87,6 +149,7 @@
 			children = (
 				50ADFF88201F53D600D50D53 /* Plugin.framework */,
 				50ADFF91201F53D600D50D53 /* PluginTests.xctest */,
+				29323ACA2BBA2E1500D57E22 /* Test.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,11 +158,12 @@
 			isa = PBXGroup;
 			children = (
 				50E1A94720377CB70090CE1A /* CarplayCapacitorPlugin.swift */,
-				295F1C0C2B67CF730003024E /* CarPlayHelper.swift */,
+				2F98D68124C9AAE400613A4C /* CarplayCapacitor.swift */,
+				295F1D1F2B6B83D50003024E /* CarPlayHelper.swift */,
 				50ADFF8B201F53D600D50D53 /* CarplayCapacitorPlugin.h */,
 				50ADFFA72020EE4F00D50D53 /* CarplayCapacitorPlugin.m */,
-				295F1C0E2B67D3D70003024E /* CarplaySceneDelegate.swift */,
 				50ADFF8C201F53D600D50D53 /* Info.plist */,
+				295F1D212B6B84620003024E /* CarplaySceneDelegate.swift */,
 			);
 			path = Plugin;
 			sourceTree = "<group>";
@@ -148,6 +212,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		29323AC92BBA2E1500D57E22 /* Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29323ADD2BBA2E1600D57E22 /* Build configuration list for PBXNativeTarget "Test" */;
+			buildPhases = (
+				29323AC62BBA2E1500D57E22 /* Sources */,
+				29323AC72BBA2E1500D57E22 /* Frameworks */,
+				29323AC82BBA2E1500D57E22 /* Resources */,
+				29323AE22BBA341D00D57E22 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				29323AE12BBA341D00D57E22 /* PBXTargetDependency */,
+			);
+			name = Test;
+			productName = Test;
+			productReference = 29323ACA2BBA2E1500D57E22 /* Test.app */;
+			productType = "com.apple.product-type.application";
+		};
 		50ADFF87201F53D600D50D53 /* Plugin */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50ADFF9C201F53D600D50D53 /* Build configuration list for PBXNativeTarget "Plugin" */;
@@ -193,10 +276,14 @@
 		50ADFF7F201F53D600D50D53 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Max Lynch";
 				TargetAttributes = {
+					29323AC92BBA2E1500D57E22 = {
+						CreatedOnToolsVersion = 15.3;
+						ProvisioningStyle = Automatic;
+					};
 					50ADFF87201F53D600D50D53 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 1100;
@@ -224,11 +311,22 @@
 			targets = (
 				50ADFF87201F53D600D50D53 /* Plugin */,
 				50ADFF90201F53D600D50D53 /* PluginTests */,
+				29323AC92BBA2E1500D57E22 /* Test */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		29323AC82BBA2E1500D57E22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29323AD62BBA2E1600D57E22 /* Assets.xcassets in Resources */,
+				29323AD92BBA2E1600D57E22 /* Base in Resources */,
+				29323AD42BBA2E1500D57E22 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50ADFF86201F53D600D50D53 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,14 +405,25 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		29323AC62BBA2E1500D57E22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29323AD12BBA2E1500D57E22 /* ViewController.swift in Sources */,
+				29323ACD2BBA2E1500D57E22 /* AppDelegate.swift in Sources */,
+				29323ACF2BBA2E1500D57E22 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50ADFF83201F53D600D50D53 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				50E1A94820377CB70090CE1A /* CarplayCapacitorPlugin.swift in Sources */,
-				295F1C0D2B67CF730003024E /* CarPlayHelper.swift in Sources */,
-				295F1C0F2B67D3D70003024E /* CarplaySceneDelegate.swift in Sources */,
+				2F98D68224C9AAE500613A4C /* CarplayCapacitor.swift in Sources */,
+				295F1D202B6B83D50003024E /* CarPlayHelper.swift in Sources */,
 				50ADFFA82020EE4F00D50D53 /* CarplayCapacitorPlugin.m in Sources */,
+				295F1D222B6B84630003024E /* CarplaySceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +438,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		29323AE12BBA341D00D57E22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50ADFF87201F53D600D50D53 /* Plugin */;
+			targetProxy = 29323AE02BBA341D00D57E22 /* PBXContainerItemProxy */;
+		};
 		50ADFF94201F53D600D50D53 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 50ADFF87201F53D600D50D53 /* Plugin */;
@@ -336,7 +450,94 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		29323AD22BBA2E1500D57E22 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29323AD32BBA2E1500D57E22 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		29323AD72BBA2E1600D57E22 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29323AD82BBA2E1600D57E22 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		29323ADB2BBA2E1600D57E22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Test/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.techmatetech.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		29323ADC2BBA2E1600D57E22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Test/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.techmatetech.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		50ADFF9A201F53D600D50D53 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -544,6 +745,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		29323ADD2BBA2E1600D57E22 /* Build configuration list for PBXNativeTarget "Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29323ADB2BBA2E1600D57E22 /* Debug */,
+				29323ADC2BBA2E1600D57E22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		50ADFF82201F53D600D50D53 /* Build configuration list for PBXProject "Plugin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

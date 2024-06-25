@@ -1,11 +1,11 @@
-# carplay
+# carplay-plugin
 
-Carplay Capacitor Plugin.
+Carplay Capacitor plugin.
 
 ## Install
 
 ```bash
-npm install carplay
+npm install carplay-plugin
 npx cap sync
 ```
 
@@ -13,6 +13,7 @@ npx cap sync
 
 <docgen-index>
 
+* [`echo(...)`](#echo)
 * [`startStreamingCarPlay(...)`](#startstreamingcarplay)
 * [`playStreamingCarPlay(...)`](#playstreamingcarplay)
 * [`pauseStreamingCarPlay(...)`](#pausestreamingcarplay)
@@ -22,6 +23,21 @@ npx cap sync
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### echo(...)
+
+```typescript
+echo(options: { value: string; }) => Promise<{ value: string; }>
+```
+
+| Param         | Type                            |
+| ------------- | ------------------------------- |
+| **`options`** | <code>{ value: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+
+--------------------
+
 
 ### startStreamingCarPlay(...)
 
@@ -71,14 +87,14 @@ pauseStreamingCarPlay(options: { value: string; }) => Promise<{ value: string; }
 ### isCarplayConnected(...)
 
 ```typescript
-isCarplayConnected(options: { value: string; }) => Promise<{ value: any; }>
+isCarplayConnected(options: { value: string; }) => Promise<{ value: string; }>
 ```
 
 | Param         | Type                            |
 | ------------- | ------------------------------- |
 | **`options`** | <code>{ value: string; }</code> |
 
-**Returns:** <code>Promise&lt;{ value: any; }&gt;</code>
+**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
 
 --------------------
 

@@ -1,9 +1,5 @@
 import { WebPlugin } from '@capacitor/core';
 export class CarplayCapacitorWeb extends WebPlugin {
-    async echo(options) {
-        console.log('ECHO', options);
-        return options;
-    }
     async startStreamingCarPlay(options) {
         console.log('startStreamingCarPlay', options);
         return options;
@@ -18,6 +14,10 @@ export class CarplayCapacitorWeb extends WebPlugin {
     }
     async isCarplayConnected(options) {
         console.log('isCarplayConnected', options);
+        return options;
+    }
+    async echo(options) {
+        console.log('ECHO', options);
         return options;
     }
 }

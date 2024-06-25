@@ -9,10 +9,6 @@ const CarplayCapacitor = core.registerPlugin('CarplayCapacitor', {
 });
 
 class CarplayCapacitorWeb extends core.WebPlugin {
-    async echo(options) {
-        console.log('ECHO', options);
-        return options;
-    }
     async startStreamingCarPlay(options) {
         console.log('startStreamingCarPlay', options);
         return options;
@@ -27,6 +23,10 @@ class CarplayCapacitorWeb extends core.WebPlugin {
     }
     async isCarplayConnected(options) {
         console.log('isCarplayConnected', options);
+        return options;
+    }
+    async echo(options) {
+        console.log('ECHO', options);
         return options;
     }
 }

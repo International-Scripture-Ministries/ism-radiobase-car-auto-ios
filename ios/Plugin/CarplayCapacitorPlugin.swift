@@ -7,7 +7,15 @@ import Capacitor
  */
 @objc(CarplayCapacitorPlugin)
 public class CarplayCapacitorPlugin: CAPPlugin {
+    private let implementation = CarplayCapacitor()
 
+    @objc func echo(_ call: CAPPluginCall) {
+        let value = call.getString("value") ?? ""
+        call.resolve([
+            "value": implementation.echo(value)
+        ])
+    }
+    
     @objc func startStreamingCarPlay(_ call: CAPPluginCall) {
         CarPlayHelper.shared.startStreaming()
         call.resolve()

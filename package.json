@@ -1,26 +1,24 @@
 {
-  "name": "carplay",
+  "name": "carplay-plugin",
   "version": "0.0.1",
-  "description": "Carplay Capacitor Plugin.",
+  "description": "Carplay Capacitor plugin.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "unpkg": "dist/plugin.js",
   "files": [
-    "android/src/main/",
-    "android/build.gradle",
     "dist/",
     "ios/Plugin/",
-    "Carplay.podspec"
+    "CarplayPlugin.podspec"
   ],
   "author": "Fahid Attique",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/apollo-apps/ism/capacitor-plugins/ios/car-auto-ios.git"
+    "url": "git+https://gitlab.com/apollo-apps/ism/capacitor-plugins/ios/car-auto-ios.git.git"
   },
   "bugs": {
-    "url": "https://gitlab.com/apollo-apps/ism/capacitor-plugins/ios/car-auto-ios/issues"
+    "url": "https://gitlab.com/apollo-apps/ism/capacitor-plugins/ios/car-auto-ios.git/issues"
   },
   "keywords": [
     "capacitor",
@@ -28,9 +26,8 @@
     "native"
   ],
   "scripts": {
-    "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
+    "verify": "npm run verify:ios && npm run verify:web",
     "verify:ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin -destination generic/platform=iOS && cd ..",
-    "verify:android": "cd android && ./gradlew clean build test && cd ..",
     "verify:web": "npm run build",
     "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
     "fmt": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- --fix --format",
@@ -44,7 +41,6 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@capacitor/android": "^5.0.0",
     "@capacitor/core": "^5.0.0",
     "@capacitor/docgen": "^0.0.18",
     "@capacitor/ios": "^5.0.0",
@@ -70,9 +66,6 @@
   "capacitor": {
     "ios": {
       "src": "ios"
-    },
-    "android": {
-      "src": "android"
     }
   }
 }

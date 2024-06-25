@@ -1,11 +1,6 @@
 import { WebPlugin } from '@capacitor/core';
 import type { CarplayCapacitorPlugin } from './definitions';
 export declare class CarplayCapacitorWeb extends WebPlugin implements CarplayCapacitorPlugin {
-    echo(options: {
-        value: string;
-    }): Promise<{
-        value: string;
-    }>;
     startStreamingCarPlay(options: {
         value: string;
     }): Promise<{
@@ -24,6 +19,11 @@ export declare class CarplayCapacitorWeb extends WebPlugin implements CarplayCap
     isCarplayConnected(options: {
         value: string;
     }): Promise<{
-        value: any;
+        value: string;
+    }>;
+    echo(options: {
+        value: string;
+    }): Promise<{
+        value: string;
     }>;
 }
