@@ -24,4 +24,25 @@ export interface CarplayCapacitorPlugin {
     }): Promise<{
         value: string;
     }>;
+    play(options: {
+        url: string;
+        title: String;
+        artist: String;
+        image: String;
+    }): Promise<{
+        url: string;
+        title: String;
+        artist: String;
+        image: String;
+    }>;
+    pause(options: {
+        value: string;
+    }): Promise<{
+        value: string;
+    }>;
+    getCurrentPlayerItemSeekTime(options: {
+        value: string;
+    }): Promise<{
+        value: string;
+    }>;
 }

@@ -16,6 +16,8 @@ public class CarplayCapacitorPlugin: CAPPlugin {
         ])
     }
     
+    // MARK: Carplay Related functions
+
     @objc func startStreamingCarPlay(_ call: CAPPluginCall) {
         CarPlayHelper.shared.startStreaming()
         call.resolve()
@@ -34,5 +36,51 @@ public class CarplayCapacitorPlugin: CAPPlugin {
     @objc func isCarplayConnected(_ call: CAPPluginCall) {
         let message = CarPlayHelper.shared.isCarplayConnected ? "1" : "0"
         call.resolve(["result": message])
+    }
+    
+    // MARK: App Related functions
+    
+    @objc func play(_ call: CAPPluginCall) {
+        
+        guard let mediaUrlString = call.getString("url") else {
+            call.reject("url key-value is missing in request")
+            return
+        }
+        
+        //  Save the call. Doc: https://capacitorjs.com/docs/core-apis/saving-calls
+        call.keepAlive = true
+        
+        //  Play the item
+        let tmpPlayerItem = TMTPlayerItem(
+            url: mediaUrlString,
+            title: call.getString("title") ?? "",
+            artist: call.getString("artist") ?? "",
+            image: call.getString("image") ?? ""
+        )
+        
+        CarPlayHelper.shared.play(item: tmpPlayerItem) {
+            //  handle avplayer did finish playing
+            call.resolve([
+                "playerDidFinishPlayingItem": mediaUrlString
+            ])
+        }
+    }
+    
+    @objc func pause(_ call: CAPPluginCall) {
+        
+        CarPlayHelper.shared.pause()
+        
+        call.resolve([
+            "playerPaused": "true"
+        ])
+    }
+    
+    @objc func getCurrentPlayerItemSeekTime(_ call: CAPPluginCall) {
+        
+        let currentTimeInSeconds = CarPlayHelper.shared.getCurrentPlayerItemSeekTime()
+        
+        call.resolve([
+            "currentTimeInSeconds": "\(currentTimeInSeconds)"
+        ])
     }
 }

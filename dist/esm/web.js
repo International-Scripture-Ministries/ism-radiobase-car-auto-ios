@@ -20,5 +20,17 @@ export class CarplayCapacitorWeb extends WebPlugin {
         console.log('ECHO', options);
         return options;
     }
+    async play(options) {
+        console.log('play', options);
+        return options;
+    }
+    async pause(options) {
+        console.log('pause', options);
+        return options;
+    }
+    async getCurrentPlayerItemSeekTime(options) {
+        console.log('getCurrentPlayerItemSeekTime', options);
+        return options;
+    }
 }
 //# sourceMappingURL=web.js.map
