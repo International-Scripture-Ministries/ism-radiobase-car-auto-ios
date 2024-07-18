@@ -51,7 +51,7 @@ public class CarplayCapacitorPlugin: CAPPlugin {
         call.keepAlive = true
         
         //  Play the item
-        let tmpPlayerItem = TMTPlayerItem(
+        let tmpPlayerItem = PlayerItem(
             url: mediaUrlString,
             title: call.getString("title") ?? "",
             artist: call.getString("artist") ?? "",

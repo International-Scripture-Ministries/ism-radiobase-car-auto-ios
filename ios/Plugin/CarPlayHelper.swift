@@ -16,9 +16,9 @@ import AVKit
 import Combine
 import MediaPlayer
 
-// MARK: TMTPlayer Item
+// MARK: Player Item
 
-@objc public class TMTPlayerItem: NSObject {
+@objc public class PlayerItem: NSObject {
     
     var url: String
     var title: String
@@ -229,7 +229,7 @@ import MediaPlayer
     
     //  MARK: Public Methods
     
-    func play(item: TMTPlayerItem, avPlayerDidEndPlaying: @escaping (() -> Void)) {
+    func play(item: PlayerItem, avPlayerDidEndPlaying: @escaping (() -> Void)) {
         
         guard let url = URL(string: item.url) else {
             return
@@ -240,7 +240,7 @@ import MediaPlayer
         self.avPlayer.replaceCurrentItem(with: avPlayerItem)
         self.avPlayer.play()
         self.setupRemoteCommandCenter()
-        self.setupNowPlaying(avPlayerItem: avPlayerItem, tmtPlayerItem: item)
+        self.setupNowPlaying(avPlayerItem: avPlayerItem, playerItem: item)
     }
     
     func pause() {
@@ -265,22 +265,22 @@ import MediaPlayer
             .store(in: &cancellables)
     }
     
-    private func setupNowPlaying(avPlayerItem: AVPlayerItem, tmtPlayerItem: TMTPlayerItem) {
+    private func setupNowPlaying(avPlayerItem: AVPlayerItem, playerItem: PlayerItem) {
         
         // Define Now Playing Info
         var nowPlayingInfo = [String : Any]()
-        nowPlayingInfo[MPMediaItemPropertyTitle] = tmtPlayerItem.title
+        nowPlayingInfo[MPMediaItemPropertyTitle] = playerItem.title
         nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = avPlayerItem.currentTime().seconds
         nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = avPlayerItem.asset.duration.seconds
         nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = self.avPlayer.rate
         
-        if tmtPlayerItem.image.isEmpty {
+        if playerItem.image.isEmpty {
             // Set the metadata
             MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
         } else {
             
             DispatchQueue.global().async {
-                if let url = URL(string: tmtPlayerItem.image) {
+                if let url = URL(string: playerItem.image) {
                     if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                         let artwork = MPMediaItemArtwork(boundsSize: image.size, requestHandler: { (_ size : CGSize) -> UIImage in
                             return image
