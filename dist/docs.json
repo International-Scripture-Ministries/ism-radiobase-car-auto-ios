@@ -134,6 +134,86 @@
         "docs": "",
         "complexTypes": [],
         "slug": "getcurrentplayeritemseektime"
+      },
+      {
+        "name": "stop",
+        "signature": "(options: { value: string; }) => Promise<{ value: string; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ value: string; }"
+          }
+        ],
+        "returns": "Promise<{ value: string; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "stop"
+      },
+      {
+        "name": "seekTo",
+        "signature": "(options: { interval: string; }) => Promise<{ interval: string; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ interval: string; }"
+          }
+        ],
+        "returns": "Promise<{ interval: string; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "seekto"
+      },
+      {
+        "name": "setVolume",
+        "signature": "(options: { volume: string; }) => Promise<{ volume: string; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ volume: string; }"
+          }
+        ],
+        "returns": "Promise<{ volume: string; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "setvolume"
+      },
+      {
+        "name": "setRate",
+        "signature": "(options: { rate: string; }) => Promise<{ rate: string; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ rate: string; }"
+          }
+        ],
+        "returns": "Promise<{ rate: string; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "setrate"
+      },
+      {
+        "name": "getCurrentPlayerState",
+        "signature": "(options: { value: string; }) => Promise<{ value: string; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ value: string; }"
+          }
+        ],
+        "returns": "Promise<{ value: string; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "getcurrentplayerstate"
       }
     ],
     "properties": []

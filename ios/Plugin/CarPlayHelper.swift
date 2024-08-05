@@ -16,6 +16,13 @@ import AVKit
 import Combine
 import MediaPlayer
 
+// MARK: Player State
+
+public enum PlayerState: String {
+    
+    case none, starting, running, paused, stopped
+}
+
 // MARK: Player Item
 
 @objc public class PlayerItem: NSObject {
@@ -72,6 +79,62 @@ import MediaPlayer
     private var avPlayer = AVPlayer()
     private var cancellables: Set<AnyCancellable> = []
     private var avPlayerDidEndPlaying: (() -> Void)?
+    
+    // MARK: Common Player Functions
+    
+    public func stop() {
+        
+        self.avPlayer.replaceCurrentItem(with: nil)
+    }
+    
+    public func getCurrentPlayerItemSeekTime() -> Double {
+        
+        return self.avPlayer.currentTime().seconds
+    }
+    
+    public func seekTo(interval: TimeInterval) {
+        
+        let playerRate = self.avPlayer.rate
+        let seekToTime = CMTime(seconds: interval, preferredTimescale: CMTimeScale(1000))
+        self.avPlayer.seek(to: seekToTime) { [weak self] success in
+            if success {
+                self?.avPlayer.rate = playerRate
+            }
+        }
+    }
+    
+    public func setVolume(_ volume: Float) {
+        
+        self.avPlayer.volume = volume
+    }
+    
+    public func setRate(_ rate: Float) {
+        
+        self.avPlayer.rate = rate
+    }
+    
+    public func currentMediaPlayerState() -> PlayerState {
+        
+        switch self.avPlayer.status {
+        case .unknown:
+                .none
+            
+        case .readyToPlay:
+            switch self.avPlayer.timeControlStatus {
+            case .paused:
+                    .paused
+            
+            case .waitingToPlayAtSpecifiedRate:
+                    .starting
+                
+            case .playing:
+                    .running
+            }
+            
+        case .failed:
+                .stopped
+        }
+    }
 }
 
 // MARK: For Carplay Player
@@ -246,11 +309,6 @@ import MediaPlayer
     func pause() {
         
         self.avPlayer.pause()
-    }
-    
-    func getCurrentPlayerItemSeekTime() -> Double {
-        
-        return self.avPlayer.currentTime().seconds
     }
     
     //  MARK: Private Methods

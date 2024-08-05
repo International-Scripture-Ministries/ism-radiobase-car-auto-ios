@@ -38,6 +38,26 @@ var capacitorCarplayCapacitor = (function (exports, core) {
             console.log('getCurrentPlayerItemSeekTime', options);
             return options;
         }
+        async stop(options) {
+            console.log('stop', options);
+            return options;
+        }
+        async seekTo(options) {
+            console.log('seekTo', options);
+            return options;
+        }
+        async setVolume(options) {
+            console.log('setVolume', options);
+            return options;
+        }
+        async setRate(options) {
+            console.log('setRate', options);
+            return options;
+        }
+        async getCurrentPlayerState(options) {
+            console.log('getCurrentPlayerState', options);
+            return options;
+        }
     }
 
     var web = /*#__PURE__*/Object.freeze({

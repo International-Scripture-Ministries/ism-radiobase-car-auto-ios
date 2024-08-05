@@ -8,7 +8,7 @@ import Capacitor
 @objc(CarplayCapacitorPlugin)
 public class CarplayCapacitorPlugin: CAPPlugin {
     private let implementation = CarplayCapacitor()
-
+    
     @objc func echo(_ call: CAPPluginCall) {
         let value = call.getString("value") ?? ""
         call.resolve([
@@ -17,7 +17,7 @@ public class CarplayCapacitorPlugin: CAPPlugin {
     }
     
     // MARK: Carplay Related functions
-
+    
     @objc func startStreamingCarPlay(_ call: CAPPluginCall) {
         CarPlayHelper.shared.startStreaming()
         call.resolve()
@@ -81,6 +81,67 @@ public class CarplayCapacitorPlugin: CAPPlugin {
         
         call.resolve([
             "currentTimeInSeconds": "\(currentTimeInSeconds)"
+        ])
+    }
+    
+    @objc func stop(_ call: CAPPluginCall) {
+        
+        CarPlayHelper.shared.stop()
+        
+        call.resolve([
+            "playerStopped": "true"
+        ])
+    }
+    
+    @objc func seekTo(_ call: CAPPluginCall) {
+        
+        guard let intervalString = call.getString("interval") as? NSString else {
+            call.reject("interval key-value is missing in request")
+            return
+        }
+        
+        let interval = TimeInterval(floatLiteral: intervalString.doubleValue)
+        CarPlayHelper.shared.seekTo(interval: interval)
+        
+        call.resolve([
+            "seekToInterval": "Done"
+        ])
+    }
+    
+    @objc func setVolume(_ call: CAPPluginCall) {
+        
+        guard let volumeString = call.getString("volume") as? NSString else {
+            call.reject("volume key-value is missing in request")
+            return
+        }
+        
+        CarPlayHelper.shared.setVolume(volumeString.floatValue)
+        
+        call.resolve([
+            "setVolume": "Done"
+        ])
+    }
+    
+    @objc func setRate(_ call: CAPPluginCall) {
+        
+        guard let rateString = call.getString("rate") as? NSString else {
+            call.reject("rate key-value is missing in request")
+            return
+        }
+        
+        CarPlayHelper.shared.setRate(rateString.floatValue)
+        
+        call.resolve([
+            "setRate": "Done"
+        ])
+    }
+    
+    @objc func getCurrentPlayerState(_ call: CAPPluginCall) {
+        
+        let currentState = CarPlayHelper.shared.currentMediaPlayerState()
+
+        call.resolve([
+            "currentPlayerState": currentState
         ])
     }
 }

@@ -47,4 +47,29 @@ export declare class CarplayCapacitorWeb extends WebPlugin implements CarplayCap
     }): Promise<{
         value: string;
     }>;
+    stop(options: {
+        value: string;
+    }): Promise<{
+        value: string;
+    }>;
+    seekTo(options: {
+        interval: string;
+    }): Promise<{
+        interval: string;
+    }>;
+    setVolume(options: {
+        volume: string;
+    }): Promise<{
+        volume: string;
+    }>;
+    setRate(options: {
+        rate: string;
+    }): Promise<{
+        rate: string;
+    }>;
+    getCurrentPlayerState(options: {
+        value: string;
+    }): Promise<{
+        value: string;
+    }>;
 }

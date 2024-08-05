@@ -21,6 +21,11 @@ npx cap sync
 * [`play(...)`](#play)
 * [`pause(...)`](#pause)
 * [`getCurrentPlayerItemSeekTime(...)`](#getcurrentplayeritemseektime)
+* [`stop(...)`](#stop)
+* [`seekTo(...)`](#seekto)
+* [`setVolume(...)`](#setvolume)
+* [`setRate(...)`](#setrate)
+* [`getCurrentPlayerState(...)`](#getcurrentplayerstate)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -137,6 +142,81 @@ pause(options: { value: string; }) => Promise<{ value: string; }>
 
 ```typescript
 getCurrentPlayerItemSeekTime(options: { value: string; }) => Promise<{ value: string; }>
+```
+
+| Param         | Type                            |
+| ------------- | ------------------------------- |
+| **`options`** | <code>{ value: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+
+--------------------
+
+
+### stop(...)
+
+```typescript
+stop(options: { value: string; }) => Promise<{ value: string; }>
+```
+
+| Param         | Type                            |
+| ------------- | ------------------------------- |
+| **`options`** | <code>{ value: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+
+--------------------
+
+
+### seekTo(...)
+
+```typescript
+seekTo(options: { interval: string; }) => Promise<{ interval: string; }>
+```
+
+| Param         | Type                               |
+| ------------- | ---------------------------------- |
+| **`options`** | <code>{ interval: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ interval: string; }&gt;</code>
+
+--------------------
+
+
+### setVolume(...)
+
+```typescript
+setVolume(options: { volume: string; }) => Promise<{ volume: string; }>
+```
+
+| Param         | Type                             |
+| ------------- | -------------------------------- |
+| **`options`** | <code>{ volume: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ volume: string; }&gt;</code>
+
+--------------------
+
+
+### setRate(...)
+
+```typescript
+setRate(options: { rate: string; }) => Promise<{ rate: string; }>
+```
+
+| Param         | Type                           |
+| ------------- | ------------------------------ |
+| **`options`** | <code>{ rate: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ rate: string; }&gt;</code>
+
+--------------------
+
+
+### getCurrentPlayerState(...)
+
+```typescript
+getCurrentPlayerState(options: { value: string; }) => Promise<{ value: string; }>
 ```
 
 | Param         | Type                            |

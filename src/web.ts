@@ -42,4 +42,29 @@ export class CarplayCapacitorWeb
     console.log('getCurrentPlayerItemSeekTime', options);
     return options;
   }
+
+  async stop(options: { value: string }): Promise<{ value: string }> {
+    console.log('stop', options);
+    return options;
+  }
+
+  async seekTo(options: { interval: string }): Promise<{ interval: string }> {
+    console.log('seekTo', options);
+    return options;
+  }
+
+  async setVolume(options: { volume: string }): Promise<{ volume: string }> {
+    console.log('setVolume', options);
+    return options;
+  }
+
+  async setRate(options: { rate: string }): Promise<{ rate: string }> {
+    console.log('setRate', options);
+    return options;
+  }
+
+  async getCurrentPlayerState(options: { value: string }): Promise<{ value: string }> {
+    console.log('getCurrentPlayerState', options);
+    return options;
+  }
 }

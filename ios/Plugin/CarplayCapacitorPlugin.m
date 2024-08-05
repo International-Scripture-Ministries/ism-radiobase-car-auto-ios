@@ -12,4 +12,9 @@ CAP_PLUGIN(CarplayCapacitorPlugin, "CarplayCapacitor",
            CAP_PLUGIN_METHOD(play, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(pause, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(getCurrentPlayerItemSeekTime, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(stop, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(seekTo, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(setVolume, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(setRate, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(getCurrentPlayerState, CAPPluginReturnPromise);
 )
