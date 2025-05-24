@@ -26,7 +26,7 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
     func templateApplicationScene(_ templateApplicationScene: CPTemplateApplicationScene, didDisconnectInterfaceController interfaceController: CPInterfaceController) {
         
         CarPlayHelper.shared.isCarplayConnected = false
-        CarPlayHelper.shared.pausePlayer()
+        CarPlayHelper.shared.pauseStreaming()
         self.interfaceController = nil
     }
 }
