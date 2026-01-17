@@ -149,7 +149,7 @@ public enum PlayerState: String {
         //  https://devmanage.radiobase.org/index.php?api_v2/Builder/RadioPlayer/getRadioPlayer/1167
         
         let url = self.getUrlWithEpoch()
-        Alamofire.request(url)
+        AF.request(url)
             .responseJSON { [weak self] dataResponse in
                 guard let self else { return }
                 switch dataResponse.result {
