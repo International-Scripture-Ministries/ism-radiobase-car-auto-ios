@@ -46,7 +46,7 @@ public enum PlayerState: String {
     
     // MARK: Static Properties
     
-    @objc static let shared = CarPlayHelper()
+    @objc public static let shared = CarPlayHelper()
     
     // MARK: Initialization
     
