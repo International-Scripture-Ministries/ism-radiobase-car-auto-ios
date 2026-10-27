@@ -52,8 +52,6 @@ public enum PlayerState: String {
     
     private override init() {
         super.init()
-        try? AVAudioSession.sharedInstance().setCategory(.playback)
-        try? AVAudioSession.sharedInstance().setActive(true)
         self.handlePlayerDidEndPlayingObserver()
     }
     
@@ -83,8 +81,9 @@ public enum PlayerState: String {
     // MARK: Common Player Functions
     
     public func stop() {
-        
+        self.avPlayer.pause()
         self.avPlayer.replaceCurrentItem(with: nil)
+        self.releasePlaybackSession()
     }
     
     public func getCurrentPlayerItemSeekTime() -> Double {
@@ -134,6 +133,29 @@ public enum PlayerState: String {
         case .failed:
                 .stopped
         }
+    }
+
+    public func isActivelyPlaying() -> Bool {
+        guard self.avPlayer.currentItem != nil else { return false }
+        return self.avPlayer.timeControlStatus == .playing
+            || self.avPlayer.timeControlStatus == .waitingToPlayAtSpecifiedRate
+    }
+
+    public func releasePlaybackSessionIfIdle() {
+        guard !self.isActivelyPlaying() else { return }
+        self.releasePlaybackSession()
+    }
+
+    private func activatePlaybackSession() {
+        let audioSession = AVAudioSession.sharedInstance()
+        try? audioSession.setCategory(.playback)
+        try? audioSession.setActive(true)
+    }
+
+    private func releasePlaybackSession() {
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nil
+        MPNowPlayingInfoCenter.default().playbackState = .stopped
+        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
     }
 }
 
@@ -187,6 +209,7 @@ public enum PlayerState: String {
                             let playerItem = AVPlayerItem(url: url)
                             self.avPlayer = AVPlayer(playerItem: playerItem)
                             self.avPlayer.rate = 1.0
+                            self.activatePlaybackSession()
                             self.avPlayer.play()
                             self.setupRemoteCommandCenterTargets()
                         }
@@ -216,6 +239,8 @@ public enum PlayerState: String {
     }
     
     @objc func playStreaming() -> MPRemoteCommandHandlerStatus {
+        guard self.avPlayer.currentItem != nil else { return .noSuchContent }
+        self.activatePlaybackSession()
         self.avPlayer.play()
         return MPRemoteCommandHandlerStatus.success
     }
@@ -301,6 +326,7 @@ public enum PlayerState: String {
         self.avPlayerDidEndPlaying = avPlayerDidEndPlaying
         let avPlayerItem = AVPlayerItem(url: url)
         self.avPlayer.replaceCurrentItem(with: avPlayerItem)
+        self.activatePlaybackSession()
         self.avPlayer.play()
         self.setupRemoteCommandCenter()
         self.setupNowPlaying(avPlayerItem: avPlayerItem, playerItem: item)
@@ -317,8 +343,10 @@ public enum PlayerState: String {
         
         NotificationCenter.default.publisher(for: .AVPlayerItemDidPlayToEndTime)
             .sink { [weak self] _ in
-                self?.avPlayer.seek(to: CMTime.zero)
-                self?.avPlayerDidEndPlaying?()
+                guard let self else { return }
+                self.avPlayer.seek(to: CMTime.zero)
+                self.avPlayerDidEndPlaying?()
+                self.releasePlaybackSession()
             }
             .store(in: &cancellables)
     }
